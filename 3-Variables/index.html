@@ -16,7 +16,25 @@
     <input id="blur" type="range" name="blur" min="0" max="250" value="10" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <input id="base" type="color" name="base" value="red">
+
+    <label for="rotateX">Rotate X:</label>
+<input id="rotateX" type="range" name="rotateX"
+min="-405" max="405" value="0" data-sizing="deg">
+
+<label for="rotateY">Rotate Y:</label>
+<input id="rotateY" type="range" name="rotateY"
+min="-450" max="450" value="0" data-sizing="deg">
+
+<label for="rotateZ">Rotate Z:</label>
+<input id="rotateZ" type="range" name="rotateZ"
+min="-450" max="450" value="0" data-sizing="deg">
+
+
+
+<label for="scale">Scale:</label>
+<input id="scale" type="range" name="scale"
+min="0.5" max="2" step="0.1" value="1">
   </div>
 
   <img src="20230404_195058.jpg" width ="200">
@@ -27,9 +45,14 @@
       misc styles, nothing to do with CSS variables
     */
  :root {
-      --base: #ffc600;
+      --base: red;
       --spacing: 30px;
-      --blur: 10px;
+      --blur: 0px;
+
+      --rotateX: 0deg;
+      --rotateY: 0deg;
+      --rotateZ: 0deg;
+      --scale: 1;
     }
     .hl {
       color: var(--base);
@@ -39,6 +62,14 @@
       padding: var(--spacing);
       background: var(--base);
       filter: blur(var(--blur));
+
+      transform:
+      perspective(1000px)
+    rotateX(var(--rotateX))
+    rotateY(var(--rotateY))
+    rotateZ(var(--rotateZ))
+    scale(var(--scale));
+
     }
     body {
       text-align: center;
